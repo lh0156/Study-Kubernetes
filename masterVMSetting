@@ -1,0 +1,7 @@
+- Start : Virtualize
+- Operating System : Linux
+- Linux : Boot ISO Image [Browse..] -> Rocky ISO 파일 선택
+- Hardware : Memory : 4096 MB, CPU Cores : 4
+- Size : 24 GB
+- Shared Directory : 설정 안함
+- Summary : Name : k8s-master
