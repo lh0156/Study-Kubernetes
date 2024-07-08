@@ -1,5 +1,13 @@
 Monitor the logs of pod loadbalancer and
-    Extract log lines corrsponding to Error unable-to-access-website
-    Write them to /opt/KUTR00101/loadbalancer
+    - Extract log lines corrsponding to Error unable-to-access-website
+    - Write them to /opt/KUTR00101/loadbalancer
 
 -> kubectl logs loadbalancer |grep error |grep unable-to-access-website > /opt/KUTR00101/loadbalancer
+
+
+
+
+Monitor the logs of pod foobar and
+    - Extract log lines corrsponding to error unable-to-access-website
+    - Write them to /opt/KUTR00101/foobar
+-> kubectl logs footbar |grep unable-to-access-website > /opt/KUTR00101/foobar
