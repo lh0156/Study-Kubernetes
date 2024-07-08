@@ -1,0 +1,18 @@
+JSONPath Pattern
+    1. $.store.book[0].title
+    2. $..author
+    3. $.store.*
+    4. $.store..price
+    5. $.store.book[?(@.price < 10)]
+
+Print the name of each node and the number of CPUs on the node
+ -> kubectl get nodes -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.capacity.cpu}{"\n"}{end}'
+
+Prints the service name and exposed ports for that service.
+ -> kubectl get services -o=jsonpath='{range .items[*]}{"Service Name: "}{.metadata.name}{"\t"}{"Ports: "}{range .spec.ports[*]}{.port}{" "}{end}{"\n"}{end}'
+
+Output the service name and cluster IP for that service
+ -> kubectl get services -o=jsonpath='{range .items[*]}{"Service Name: "}{.metadata.name}{"\t"}{"Cluster IP: "}{.spec.clusterIP}{"\n"}{end}'
+
+Prints the names of all namespaces and the status of those namespaces.
+ -> kubectl get namespaces -o=jsonpath='{range .items[*]}{"Namespace Name: "}{.metadata.name}{"\t"}{"Phase: "}{.status.phase}{"\n"}{end}'
