@@ -1,0 +1,20 @@
+Create a new NetworkPolicy name allow-port-from-namespace that allows Pods in the existing namespace echo to connect to port 9000 of other Pods in the same namespace, Ensure that the new NetworkPolicy
+ -> kubectl label pods mypod role=app
+ -> kubectl label namespace myns node=accept
+ -> apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: all-port-from-namespace        #This line is changed
+      namespace: echo        #This line should be changed
+    spec:
+      podSelector:
+        matchLabels: {}
+      ingress:
+      - from:
+        - namespaceSelector:
+            matchLabels:
+              name: internal        #This line is changed
+        - podSelector: {}
+        ports:
+        - port: 9000        #This line is changed
+-> kubectl apply -f networkpolicy.yaml
