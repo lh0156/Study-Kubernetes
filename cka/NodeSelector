@@ -1,0 +1,19 @@
+Schedule a pod as follow
+
+- Name:  nginx-kusc00401
+- Image:  nginx
+- Node selector: disk=spinning
+
+ ->
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nginx-kusc00401
+      labels:
+        role: nginx-kusc00401
+    spec:
+      nodeSelector:
+        disk: spinning
+      containers:
+        - name: nginx
+          image: nginx
